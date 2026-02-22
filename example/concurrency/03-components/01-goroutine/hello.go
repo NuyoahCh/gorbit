@@ -24,5 +24,7 @@ func sayGoodbye() {
 }
 
 func sayHello() {
+	excute()
+	sayGoodbye()
 	fmt.Println("Hello, Goroutine!")
 }
