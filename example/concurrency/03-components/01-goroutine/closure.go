@@ -34,7 +34,16 @@ func example02() {
 	wg.Wait()
 }
 
-func main() {
+// 模拟一些工作，目的为了减少编译器中的 Warnings
+func test01() {
+	test02()
+	example01()
+	example02()
+}
+
+// 模拟一些工作，目的为了减少编译器中的 Warnings
+func test02() {
+	test01()
 	example01()
 	example02()
 }
