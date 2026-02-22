@@ -17,7 +17,7 @@ func LocalContext() int {
 // Context 2: 共享作用域 (多协程并发上下文)
 // 在这个上下文中，i 是一个共享变量。
 // 虽然代码看起来和上面一样，但由于并发的存在，i++ 的“检索-修改-存储”三个步骤
-// 可能会被其他协程中断，导致竞态条件（Race Condition）。
+// 可能会被其他协程中断，导致race_condition（Race Condition）。
 func SharedContext() int {
 	var i int
 	var wg sync.WaitGroup
@@ -37,7 +37,7 @@ func SharedContext() int {
 }
 
 // Context 3: 显式的原子操作上下文 (机器/指令级上下文)
-// 如果我们需要在并发环境下保持原子性，必须改变操作的方式，
+// 如果我们需要在并发环境下保持atomicity，必须改变操作的方式，
 // 使用底层硬件提供的原子指令。
 func AtomicPackageContext() int64 {
 	var i int64
